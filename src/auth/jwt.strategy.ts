@@ -14,6 +14,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
+  // Override of the original `validate` function
   async validate(payload: JwtPayload): Promise<UserEntity> {
     return this.authService.validateUser(payload);
   }
